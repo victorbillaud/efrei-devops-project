@@ -1,0 +1,41 @@
+{
+    "name": "docker",
+    "templates": [
+        {
+            "labelString": "custom-docker-slave",
+            "connector": {
+                "stapler-class": "io.jenkins.docker.connector.DockerComputerSSHConnector",
+                "sshKeyStrategy": {
+                    "stapler-class": "io.jenkins.docker.connector.DockerComputerSSHConnector$ManuallyConfiguredSSHKey",
+                    "credentialsId": "380ee186-28c3-426a-962d-4e67716e0b17"
+                },
+                "port": 22
+            },
+            "remoteFs": "/home/jenkins",
+            "instanceCap": 2147483647,
+            "mode": "",
+            "retentionStrategy": {
+                "stapler-class": "com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy",
+                "idleMinutes": 10
+            },
+            "dockerTemplateBase": {
+                "image": "victorbillaud/jenkins-docker-slave:2",
+                "mounts": [
+                    {
+                        "string": "type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock"
+                    }
+                ],
+                "bindAllPorts": true,
+                "cpuPeriod": 0,
+                "cpuQuota": 0,
+                "privileged": false,
+                "tty": false
+            },
+            "removeVolumes": false,
+            "stopTimeout": 10,
+            "pullStrategy": "",
+            "$class": ""
+        }
+    ],
+    "$class": ""
+}
