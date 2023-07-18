@@ -1,7 +1,6 @@
 def sendDiscordNotifer(message, footer) {
     // Create a message with the current build status and the build number
-    def currentBuild = currentBuild.rawBuild
-    def env = currentBuild.getEnvironment()
+    def currentResult = currentBuild.currentResult
     def JOB_NAME = env.JOB_NAME
     def JOB_URL = env.JOB_URL
     def BUILD_NUMBER = env.BUILD_NUMBER
