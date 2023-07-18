@@ -8,7 +8,7 @@ node('custom-docker-slave') {
         sh 'docker tag portfolio-next:${BUILD_NUMBER} portfolio-next:latest'
     }
     stage('Test') {
-        sh 'docker run --rm portfolio-next:latest npm run test'
+        sh 'docker run --rm portfolio-next:latest npm run run-tests'
     }
     stage('Deploy') {
         sh 'docker run -d -p 3000:3000 --name=portfolio-next portfolio-next:latest'
