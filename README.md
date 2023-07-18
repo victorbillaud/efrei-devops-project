@@ -32,3 +32,7 @@ Follow these steps to set up the project:
 17. Run the `jenkins-docker-slave-setup.sh` script with your Jenkins username and API token as arguments, like this: `./jenkins-docker-slave-setup.sh <username> <token>`. Replace `<username>` and `<token>` with your actual Jenkins username and API token.
 
 After completing these steps, your Jenkins instance should be set up and ready to use.
+
+### Discord notifier
+
+If you want to follow build steps, you can join this (discord)[https://discord.gg/qRe9wNXQm], or copy this link `https://discord.gg/qRe9wNXQm`
