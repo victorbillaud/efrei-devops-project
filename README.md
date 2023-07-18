@@ -7,7 +7,6 @@ This project sets up a Jenkins instance and a Docker host using Vagrant.
 Before you begin, make sure you have the following software installed on your computer:
 
 - [Vagrant](https://www.vagrantup.com/downloads.html)
-- [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 
 ## Getting Started
 
@@ -35,4 +34,4 @@ After completing these steps, your Jenkins instance should be set up and ready t
 
 ### Discord notifier
 
-If you want to follow build steps, you can join this (discord)[https://discord.gg/qRe9wNXQm], or copy this link `https://discord.gg/qRe9wNXQm`
+If you want to follow build steps, you can join this [discord](https://discord.gg/qRe9wNXQm), or copy this link `https://discord.gg/qRe9wNXQm`
