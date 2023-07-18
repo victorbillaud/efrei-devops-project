@@ -43,6 +43,31 @@ else
   echo "Docker plugin is already installed"
 fi
 
+echo "Install Discord Notifier plugin"
+# Check if Discord Notifier plugin is installed
+DISCORD_PLUGIN_INSTALLED=$(curl -s 'http://localhost:8080/pluginManager/api/json?depth=1' \
+  --user "$JENKINS_USERNAME:$JENKINS_API_TOKEN" | \
+  grep -o '"shortName":"discord-notifier","active":true')
+
+if [ -z "$DISCORD_PLUGIN_INSTALLED" ]; then
+  echo "Installing discord-notifier..."
+  # Install the plugins
+  INSTALL_RESPONSE=$(curl -s -X POST -d '<jenkins><install plugin="discord-notifier@latest" /></jenkins>' \
+    -H 'Content-Type: text/xml' \
+    -H "$CRUMB" \
+    --user "$JENKINS_USERNAME:$JENKINS_API_TOKEN" \
+    http://localhost:8080/pluginManager/installNecessaryPlugins)
+
+  if [[ $INSTALL_RESPONSE == *"Error"* ]]; then
+    echo "Failed to install Discord plugin"
+    exit 1
+  fi
+
+  sleep 20
+else
+  echo "Discord notifier plugin is already installed"
+fi
+
 echo "Restart Jenkins"
 # Restart Jenkins
 RESTART_RESPONSE=$(curl -s -X POST http://localhost:8080/safeRestart \
