@@ -35,3 +35,15 @@ After completing these steps, your Jenkins instance should be set up and ready t
 ### Discord notifier
 
 If you want to follow build steps, you can join this [discord](https://discord.gg/qRe9wNXQm), or copy this link `https://discord.gg/qRe9wNXQm`
+
+### Errors
+
+If you get stuck on this step, you must recreate the credentials to allow the jenkins machine to connect on docker container through ssh.
+```bash
+Still waiting to schedule task
+‘Jenkins’ doesn’t have label ‘custom-docker-slave’
+```
+
+Go to http://localhost:8080/manage/configureClouds/ and open docker agent templates. 
+Add a new SSH credentials with `jenkins` and `jenkins` as username and password.
+Wait 1-2 minutes and your job will run.
